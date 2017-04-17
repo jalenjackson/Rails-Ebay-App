@@ -6,6 +6,7 @@
   <% @products.each do |product| %>
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
         <td>
+          <%= image_tag 'https://cdn.pixabay.com/photo/2012/12/04/07/36/background-68622_1280.jpg', class: 'list_image' %>
         </td>
         <td class="list_description">
           <dl>
