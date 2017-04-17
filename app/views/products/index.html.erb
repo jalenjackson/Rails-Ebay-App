@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+<table>
+  <% @products.each do |product| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td>
+          <%= image_tag 'https://cdn.pixabay.com/photo/2012/12/04/07/36/background-68622_1280.jpg', class: 'list_image' %>
+        </td>
+        <td class="list_description">
+          <dl>
+            <dt><%= product.title %></dt>
+            <dd><%= truncate(strip_tags(product.description), length:80) %></dd>
+          </dl>
+        </td>
+        <td class="list_actions">
+          <%= link_to 'Show', product %>
+          <%= link_to 'Edit' , edit_product_path(product) %> <br/>
+          <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+      <% end %>
+</table>
+<br/>
+<%= link_to 'New Product', new_product_path %>
