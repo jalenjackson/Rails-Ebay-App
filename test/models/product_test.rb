@@ -52,4 +52,11 @@ class ProductTest < ActiveSupport::TestCase
     products = Product.new(title: products(:ruby).title, description: 'yyy', price: 1, image_url: 'cool.jpg')
     assert products.invalid?
   end
+
+  test 'product title must be greater than 10 characters' do
+    bad = Product.new(title: 'hello', description: 'yyy', price: 1, image_url: 'cool.jpg')
+    good = Product.new(title: 'A new post by jalen jackson', price: 1, description: 'uyy', image_url: 'cool.jpg')
+    assert bad.invalid?
+    assert good.valid?
+  end
 end

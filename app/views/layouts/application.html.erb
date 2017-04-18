@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Practice</title>
+    <title>Online Store</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class = "<%= controller.controller_name %>">
-    <%= yield %>
+  <div id="banner">
+    <%= image_tag 'https://cdn.pixabay.com/photo/2015/12/23/01/14/edit-1105049_1280.png', alt: 'The bookshelf', class: 'nav-logo' %>
+    <span class="title"><%= @page_title %></span>
+  </div>
+  <div id="columns">
+    <div id="side">
+      <p id="side-bar-time"><%= Time.now.strftime('%m/%d/%Y %I:%M:%S %p') %></p>
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Questions</a></li>
+        <li><a href="">News</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div>
   </body>
 </html>
